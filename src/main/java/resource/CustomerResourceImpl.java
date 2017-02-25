@@ -1,5 +1,6 @@
 package resource;
 
+import com.sun.org.apache.regexp.internal.RE;
 import domain.Customer;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -64,6 +65,12 @@ public class CustomerResourceImpl implements CustomerResource {
 		current.setState(update.getState());
 		current.setZip(update.getZip());
 		current.setCountry(update.getCountry());
+	}
+
+	public Response lockAnnotation() {
+		System.out.println("lock is working");
+
+		return Response.ok().entity("lock is working").build();
 	}
 
 	private void outputCustomer(OutputStream os, Customer cust) {

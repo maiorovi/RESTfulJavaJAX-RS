@@ -1,5 +1,7 @@
 package resource;
 
+import custom_utils.LOCK;
+
 import javax.ws.rs.*;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.StreamingOutput;
@@ -21,4 +23,8 @@ public interface CustomerResource {
 	@Path("{id}")
 	@Consumes("application/xml")
 	void updateCustomer(@PathParam("id") int id, InputStream is);
+
+	@LOCK
+	@Path("hello-lock")
+	Response lockAnnotation();
 }
