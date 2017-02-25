@@ -1,6 +1,6 @@
 package config;
 
-import resource.CustomerResource;
+import resource.CustomerResourceImpl;
 import test.MessageRestService;
 
 import javax.ws.rs.ApplicationPath;
@@ -13,14 +13,14 @@ public class Configuration extends Application{
 	private Set<Object> singletons = new HashSet<Object>();
 
 	public Configuration() {
-		singletons.add(new CustomerResource());
+		singletons.add(new CustomerResourceImpl());
 	}
 
 	@Override
 	public Set<Class<?>> getClasses() {
 		Set<Class<?>> classes = new HashSet<Class<?>>();
 		classes.add(MessageRestService.class);
-//		classes.add(CustomerResource.class);
+//		classes.add(CustomerResourceImpl.class);
 
 		return classes;
 	}
