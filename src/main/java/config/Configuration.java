@@ -1,4 +1,7 @@
-package test;
+package config;
+
+import resource.CustomerResource;
+import test.MessageRestService;
 
 import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.core.Application;
@@ -12,6 +15,7 @@ public class Configuration extends Application{
 	public Set<Class<?>> getClasses() {
 		Set<Class<?>> classes = new HashSet<Class<?>>();
 		classes.add(MessageRestService.class);
+		classes.add(CustomerResource.class);
 
 		return classes;
 	}
