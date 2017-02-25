@@ -20,6 +20,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicInteger;
 
 @Path("/customers")
+
 public class CustomerResource {
 
 	private Map<Integer, Customer> customerDb = new ConcurrentHashMap<Integer, Customer>();
@@ -30,7 +31,7 @@ public class CustomerResource {
 	@Consumes("application/xml")
 	public Response createCustomer(InputStream is) {
 		Customer customer = readCustomer(is);
-		customer.setId(idCounter.incrementAndGet());
+		customer.setId(idCounter.getAndIncrement());
 		customerDb.put(customer.getId(), customer);
 		System.out.println("created customer: " + customer.getId());
 

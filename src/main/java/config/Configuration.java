@@ -10,13 +10,23 @@ import java.util.Set;
 
 @ApplicationPath("/rest")
 public class Configuration extends Application{
+	private Set<Object> singletons = new HashSet<Object>();
+
+	public Configuration() {
+		singletons.add(new CustomerResource());
+	}
 
 	@Override
 	public Set<Class<?>> getClasses() {
 		Set<Class<?>> classes = new HashSet<Class<?>>();
 		classes.add(MessageRestService.class);
-		classes.add(CustomerResource.class);
+//		classes.add(CustomerResource.class);
 
 		return classes;
+	}
+
+	@Override
+	public Set<Object> getSingletons() {
+		return singletons;
 	}
 }
