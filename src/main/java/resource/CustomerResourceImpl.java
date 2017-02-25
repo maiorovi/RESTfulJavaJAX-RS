@@ -73,6 +73,10 @@ public class CustomerResourceImpl implements CustomerResource {
 		return Response.ok().entity("lock is working").build();
 	}
 
+	public Response getCustomerByFullName(String first, String last) {
+		return Response.ok().entity("path parameters can be any where. you suplied following path params " + first +" - " + last).build();
+	}
+
 	private void outputCustomer(OutputStream os, Customer cust) {
 		PrintStream writer = new PrintStream(os);
 		writer.println("<customer id=\"" + cust.getId() + "\">");

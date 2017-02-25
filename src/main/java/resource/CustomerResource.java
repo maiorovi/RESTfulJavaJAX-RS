@@ -15,12 +15,18 @@ public interface CustomerResource {
 	Response createCustomer(InputStream is);
 
 	@GET
-	@Path("{id}")
+	@Path("{firstname}-{lastname}")
+	@Produces("application/xml")
+	Response getCustomerByFullName(@PathParam("firstname") String first,
+	                               @PathParam("lastname") String last);
+
+	@GET
+	@Path("{id: \\d+}")
 	@Produces("application/xml")
 	StreamingOutput getCustomer(@PathParam("id") int id);
 
 	@PUT
-	@Path("{id}")
+	@Path("{id: \\d+}")
 	@Consumes("application/xml")
 	void updateCustomer(@PathParam("id") int id, InputStream is);
 
