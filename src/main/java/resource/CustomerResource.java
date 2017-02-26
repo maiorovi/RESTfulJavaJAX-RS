@@ -33,4 +33,9 @@ public interface CustomerResource {
 	@LOCK
 	@Path("hello-lock")
 	Response lockAnnotation();
+
+	//forbiden params in url
+	@GET
+	@Path("roy&fielding")
+	public Response getOurBestCustomer();
 }

@@ -73,6 +73,10 @@ public class CustomerResourceImpl implements CustomerResource {
 		return Response.ok().entity("lock is working").build();
 	}
 
+	public Response getOurBestCustomer() {
+		return Response.ok().entity("roy is the best").build();
+	}
+
 	public Response getCustomerByFullName(String first, String last) {
 		return Response.ok().entity("path parameters can be any where. you suplied following path params " + first +" - " + last).build();
 	}
