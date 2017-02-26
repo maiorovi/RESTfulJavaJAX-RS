@@ -1,7 +1,9 @@
 package config;
 
+import resource.AddressableCustomerResource;
 import resource.CarResource;
 import resource.CustomerResourceImpl;
+import resource.FileResource;
 import test.MessageRestService;
 
 import javax.ws.rs.ApplicationPath;
@@ -16,6 +18,8 @@ public class Configuration extends Application{
 	public Configuration() {
 		singletons.add(new CustomerResourceImpl());
 		singletons.add(new CarResource());
+		singletons.add(new FileResource());
+		singletons.add(new AddressableCustomerResource());
 	}
 
 	@Override
