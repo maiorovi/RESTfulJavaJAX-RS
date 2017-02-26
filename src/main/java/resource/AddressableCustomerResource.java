@@ -28,6 +28,17 @@ public class AddressableCustomerResource {
 		return Response.created(new URI("addressable-customer/"+ customer.getId())).build();
 	}
 
+	@POST
+	@Consumes("application/json")
+	public Response addCustomerFromJson(AddressableCustomer customer) throws URISyntaxException {
+
+		System.out.println(customer);
+		customer.setId(atomicInteger.getAndIncrement());
+		dataStore.put(customer.getId(), customer);
+
+		return Response.created(new URI("addressable-customer/"+ customer.getId())).build();
+	}
+
 	@GET
 	@Path("{id}")
 	@Produces("application/xml")
@@ -38,6 +49,19 @@ public class AddressableCustomerResource {
 
 		return Response.ok().entity(dataStore.get(id)).build();
 	}
+
+	@GET
+	@Path("{id}")
+	@Produces("application/json")
+	public Response getCustomerToJson(@PathParam("id") int id) {
+		if (!dataStore.containsKey(id)) {
+			throw new WebApplicationException(Response.Status.NOT_FOUND);
+		}
+
+		return Response.ok().entity(dataStore.get(id)).build();
+	}
+
+
 
 
 

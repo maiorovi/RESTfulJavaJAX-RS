@@ -10,7 +10,7 @@ public class AddressableCustomer {
 	@XmlAttribute
 	protected int id;
 
-	@XmlElement
+	@XmlElement(name = "name")
 	protected String fullname;
 
 	@XmlElement
