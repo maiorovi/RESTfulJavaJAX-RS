@@ -37,10 +37,12 @@ public class CustomerResourceImpl implements CustomerResource {
 
 
 	}
-
-	public StreamingOutput getCustomer(@PathParam("id") int id) {
+	public StreamingOutput getCustomer(int id,
+	                                   String userAgent,
+	                                   String date) {
 		final Customer customer = customerDb.get(id);
-
+		System.out.println("User-agent: " + userAgent);
+		System.out.println("Last visit:" + date);
 		if (customer == null) {
 			throw new WebApplicationException(Response.Status.NOT_FOUND);
 		}

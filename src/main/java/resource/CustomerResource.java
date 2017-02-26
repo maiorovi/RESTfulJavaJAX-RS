@@ -18,12 +18,14 @@ public interface CustomerResource {
 	@Path("{firstname}-{lastname}")
 	@Produces("application/xml")
 	Response getCustomerByFullName(@PathParam("firstname") String first,
-	                               @PathParam("lastname") String last);
+	                               @PathParam("lastname") @DefaultValue("2") String last);
 
 	@GET
 	@Path("{id: \\d+}")
 	@Produces("application/xml")
-	StreamingOutput getCustomer(@PathParam("id") int id);
+	StreamingOutput getCustomer(@PathParam("id") int id,
+	                            @HeaderParam("User-Agent") String userAgent,
+	                            @CookieParam("last-visit") String date);
 
 	@PUT
 	@Path("{id: \\d+}")

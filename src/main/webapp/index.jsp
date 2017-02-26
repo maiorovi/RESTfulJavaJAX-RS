@@ -11,6 +11,11 @@
     <title>Title</title>
 </head>
 <body>
-<p>Hello WOrld!</p>
+<p>Hello World!</p>
+<form action="/rest/customers" method="post">
+    First Name: <input type="text" name="firstname"/><br/>
+    Last Name: <input type="text" name="lastname"/><br/>
+    <INPUT type="submit" value="Send">
+</form>
 </body>
 </html>
