@@ -1,5 +1,6 @@
 package config;
 
+import resource.CarResource;
 import resource.CustomerResourceImpl;
 import test.MessageRestService;
 
@@ -14,6 +15,7 @@ public class Configuration extends Application{
 
 	public Configuration() {
 		singletons.add(new CustomerResourceImpl());
+		singletons.add(new CarResource());
 	}
 
 	@Override
