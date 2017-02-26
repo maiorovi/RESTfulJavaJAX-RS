@@ -53,4 +53,15 @@ public class CarResource {
 
 		return output;
 	}
+
+	@GET
+	@Path("/uriinfo/{make}/{model}/{year}")
+	public String getFromUriInfo(@Context UriInfo uriInfo) {
+		String make = uriInfo.getPathParameters().getFirst("make");
+		PathSegment model = uriInfo.getPathSegments().get(3);
+		String color = model.getMatrixParameters().getFirst("color");
+		String year = uriInfo.getPathParameters().getFirst("year");
+
+		return "A" + color + " " + year + " " + make + " " + model.getPath();
+	}
 }
