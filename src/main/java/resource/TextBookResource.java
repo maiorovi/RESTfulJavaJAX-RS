@@ -1,6 +1,7 @@
 package resource;
 
 import exceptions.EntityNotFoundException;
+import org.omg.CosNaming.NamingContextPackage.NotFound;
 
 import javax.swing.*;
 import javax.ws.rs.*;
@@ -45,5 +46,11 @@ public class TextBookResource {
 	@Path("not_found_with_mapper")
 	public Response notFoundWithMapper() {
 		throw new EntityNotFoundException();
+	}
+
+	@GET
+	@Path("not_found_with_specific_exception")
+	public Response notFoundWithSpecificException() {
+		throw new NotFoundException("not found", Response.status(Response.Status.NOT_FOUND).entity("non found with specific exception").build());
 	}
 }
