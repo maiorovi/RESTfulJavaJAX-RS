@@ -1,10 +1,9 @@
 package resource;
 
+import exceptions.EntityNotFoundException;
+
 import javax.swing.*;
-import javax.ws.rs.GET;
-import javax.ws.rs.POST;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
+import javax.ws.rs.*;
 import javax.ws.rs.core.NewCookie;
 import javax.ws.rs.core.Response;
 
@@ -33,5 +32,18 @@ public class TextBookResource {
 		Response.ResponseBuilder responseBuilder = Response.ok("hello", "text/plain");
 
 		return responseBuilder.cookie(cookie).build();
+	}
+
+	@GET
+	@Path("not_found")
+	public Response withException() {
+		throw new WebApplicationException("Not found", Response.status(Response.Status.NOT_FOUND).entity("not_found").build());
+	}
+
+
+	@GET
+	@Path("not_found_with_mapper")
+	public Response notFoundWithMapper() {
+		throw new EntityNotFoundException();
 	}
 }

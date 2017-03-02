@@ -9,7 +9,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 @ApplicationPath("/rest")
-public class Configuration extends Application{
+public class Configuration extends Application {
 	private Set<Object> singletons = new HashSet<Object>();
 
 	public Configuration() {
@@ -24,6 +24,7 @@ public class Configuration extends Application{
 	public Set<Class<?>> getClasses() {
 		Set<Class<?>> classes = new HashSet<Class<?>>();
 		classes.add(MessageRestService.class);
+		classes.add(EntityNotFoundMapper.class);
 //		classes.add(CustomerResourceImpl.class);
 
 		return classes;
