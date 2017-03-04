@@ -70,6 +70,7 @@ public class AddressableCustomerResource {
 		Response.ResponseBuilder builder = request.evaluatePreconditions(tag);
 
 		if (builder != null) {
+			// not modified here
 			builder.cacheControl(cacheControl);
 			return builder.build();
 		}
