@@ -4,9 +4,16 @@ import domain.AddressableCustomer;
 import domain.Customer;
 
 import javax.ws.rs.*;
+import javax.ws.rs.core.CacheControl;
 import javax.ws.rs.core.Response;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.TimeZone;
 import java.util.UUID;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -47,7 +54,18 @@ public class AddressableCustomerResource {
 			throw new WebApplicationException(Response.Status.NOT_FOUND);
 		}
 
-		return Response.ok().entity(dataStore.get(id)).build();
+//		Date date = Date.from(LocalDateTime.of(2017, 03, 06, 17, 50, 00).atZone(ZoneId.systemDefault()).toInstant());
+		CacheControl cacheControl = new CacheControl();
+		cacheControl.setMaxAge(300);
+		cacheControl.setPrivate(true);
+		cacheControl.setNoStore(false);
+
+		return Response
+				.ok()
+				.cacheControl(cacheControl)
+//				.expires(date)
+				.entity(dataStore.get(id))
+				.build();
 	}
 
 	@GET
