@@ -1,5 +1,6 @@
 package config;
 
+import filters.HttpMethodOverride;
 import resource.*;
 import test.MessageRestService;
 
@@ -18,6 +19,7 @@ public class Configuration extends Application {
 		singletons.add(new FileResource());
 		singletons.add(new AddressableCustomerResource());
 		singletons.add(new TextBookResource());
+		singletons.add(new CapitalResource());
 	}
 
 	@Override
@@ -25,7 +27,8 @@ public class Configuration extends Application {
 		Set<Class<?>> classes = new HashSet<Class<?>>();
 		classes.add(MessageRestService.class);
 		classes.add(EntityNotFoundMapper.class);
-//		classes.add(CustomerResourceImpl.class);
+//		classes.add(CustomerResourceImpl.class);\
+		classes.add(HttpMethodOverride.class);
 
 		return classes;
 	}
