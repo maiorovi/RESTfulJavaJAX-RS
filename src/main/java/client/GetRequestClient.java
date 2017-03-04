@@ -5,7 +5,7 @@ import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.Response;
 
-public class FstClient {
+public class GetRequestClient {
 	public static void main(String[] args) {
 		Client client = ClientBuilder.newClient();
 
