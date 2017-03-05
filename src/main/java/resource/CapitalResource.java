@@ -1,5 +1,6 @@
 package resource;
 
+import annotations.Encrypt;
 import annotations.MaxAge;
 import domain.Capital;
 import org.apache.http.client.methods.RequestBuilder;
@@ -23,6 +24,7 @@ public class CapitalResource {
 	@Path("{id}")
 	@Produces("application/xml")
 	@MaxAge(700)
+	@Encrypt
 	public Response getCapital(@PathParam("id") int id, @Context Request request) {
 		Capital capital = capitalsStore.get(id);
 

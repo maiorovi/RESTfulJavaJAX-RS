@@ -2,6 +2,7 @@ package config;
 
 import dynamic_feature.MaxAgeFeature;
 import filters.BearerTokenFilter;
+import filters.EncryptionFilter;
 import filters.HttpMethodOverride;
 import resource.*;
 import test.MessageRestService;
@@ -24,6 +25,7 @@ public class Configuration extends Application {
 		singletons.add(new CapitalResource());
 		singletons.add(new BearerTokenFilter());
 		singletons.add(new MaxAgeFeature());
+		singletons.add(new EncryptionFilter());
 	}
 
 	@Override
