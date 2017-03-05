@@ -7,6 +7,8 @@ import javax.ws.rs.*;
 import javax.ws.rs.core.*;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -17,6 +19,7 @@ public class CapitalResource {
 
 	@GET
 	@Path("{id}")
+	@Produces("application/xml")
 	public Response getCapital(@PathParam("id") int id, @Context Request request) {
 		Capital capital = capitalsStore.get(id);
 
@@ -41,8 +44,11 @@ public class CapitalResource {
 	}
 
 	@GET
+	@Produces("application/json")
 	public Response getCapitals() {
-		return Response.ok().entity(capitalsStore.values()).build();
+		List<Capital> capitals = new ArrayList<>();
+		capitalsStore.values().forEach(it -> capitals.add(it));
+		return Response.ok().entity(capitals).build();
 	}
 
 	@POST
