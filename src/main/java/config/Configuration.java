@@ -1,5 +1,6 @@
 package config;
 
+import filters.BearerTokenFilter;
 import filters.HttpMethodOverride;
 import resource.*;
 import test.MessageRestService;
@@ -20,6 +21,7 @@ public class Configuration extends Application {
 		singletons.add(new AddressableCustomerResource());
 		singletons.add(new TextBookResource());
 		singletons.add(new CapitalResource());
+		singletons.add(new BearerTokenFilter());
 	}
 
 	@Override
