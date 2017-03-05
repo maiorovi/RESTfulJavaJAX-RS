@@ -1,5 +1,6 @@
 package config;
 
+import dynamic_feature.MaxAgeFeature;
 import filters.BearerTokenFilter;
 import filters.HttpMethodOverride;
 import resource.*;
@@ -22,6 +23,7 @@ public class Configuration extends Application {
 		singletons.add(new TextBookResource());
 		singletons.add(new CapitalResource());
 		singletons.add(new BearerTokenFilter());
+		singletons.add(new MaxAgeFeature());
 	}
 
 	@Override

@@ -1,5 +1,6 @@
 package resource;
 
+import annotations.MaxAge;
 import domain.Capital;
 import org.apache.http.client.methods.RequestBuilder;
 
@@ -13,6 +14,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicInteger;
 
 @Path("/capital")
+@MaxAge(900)
 public class CapitalResource {
 	private ConcurrentHashMap<Integer, Capital> capitalsStore = new ConcurrentHashMap<>();
 	private AtomicInteger counter = new AtomicInteger();
@@ -20,6 +22,7 @@ public class CapitalResource {
 	@GET
 	@Path("{id}")
 	@Produces("application/xml")
+	@MaxAge(700)
 	public Response getCapital(@PathParam("id") int id, @Context Request request) {
 		Capital capital = capitalsStore.get(id);
 
