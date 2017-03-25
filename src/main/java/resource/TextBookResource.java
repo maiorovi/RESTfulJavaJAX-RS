@@ -2,6 +2,7 @@ package resource;
 
 import exceptions.EntityNotFoundException;
 import org.omg.CosNaming.NamingContextPackage.NotFound;
+import org.springframework.stereotype.Component;
 
 import javax.swing.*;
 import javax.ws.rs.*;
@@ -9,6 +10,7 @@ import javax.ws.rs.core.NewCookie;
 import javax.ws.rs.core.Response;
 
 @Path("/textbook")
+@Component
 public class TextBookResource {
 
 	@GET
