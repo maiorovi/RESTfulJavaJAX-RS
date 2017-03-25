@@ -26,6 +26,7 @@ public class Configuration extends Application {
 		singletons.add(new BearerTokenFilter());
 		singletons.add(new MaxAgeFeature());
 		singletons.add(new EncryptionFilter());
+		singletons.add(new WatchesSecuredResource());
 	}
 
 	@Override
