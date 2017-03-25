@@ -2,6 +2,7 @@ package resource;
 
 import domain.AddressableCustomer;
 import domain.Customer;
+import org.springframework.stereotype.Component;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.*;
@@ -18,6 +19,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicInteger;
 
 @Path("/addressable-customer")
+@Component
 public class AddressableCustomerResource {
 
 	private ConcurrentHashMap<Integer, AddressableCustomer> dataStore = new ConcurrentHashMap<Integer, AddressableCustomer>();

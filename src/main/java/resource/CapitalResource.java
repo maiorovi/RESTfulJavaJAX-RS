@@ -4,6 +4,7 @@ import annotations.Encrypt;
 import annotations.MaxAge;
 import domain.Capital;
 import org.apache.http.client.methods.RequestBuilder;
+import org.springframework.stereotype.Component;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.*;
@@ -16,6 +17,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 @Path("/capital")
 @MaxAge(900)
+@Component
 public class CapitalResource {
 	private ConcurrentHashMap<Integer, Capital> capitalsStore = new ConcurrentHashMap<>();
 	private AtomicInteger counter = new AtomicInteger();

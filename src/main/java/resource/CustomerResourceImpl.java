@@ -2,6 +2,7 @@ package resource;
 
 import com.sun.org.apache.regexp.internal.RE;
 import domain.Customer;
+import org.springframework.stereotype.Component;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
@@ -20,7 +21,7 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicInteger;
 
-
+@Component
 public class CustomerResourceImpl implements CustomerResource {
 
 	private Map<Integer, Customer> customerDb = new ConcurrentHashMap<Integer, Customer>();

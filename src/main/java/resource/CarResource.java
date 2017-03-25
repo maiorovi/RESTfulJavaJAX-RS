@@ -1,5 +1,7 @@
 package resource;
 
+import org.springframework.stereotype.Component;
+
 import javax.ws.rs.*;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.PathSegment;
@@ -8,6 +10,7 @@ import javax.ws.rs.core.UriInfo;
 import java.util.List;
 
 @Path("/cars")
+@Component
 public class CarResource {
 
 	public static enum Color {

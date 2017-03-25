@@ -1,9 +1,12 @@
 package resource;
 
+import org.springframework.stereotype.Component;
+
 import javax.ws.rs.*;
 import java.io.*;
 
 @Path("/file")
+@Component
 public class FileResource {
 
 	private static final String basePath = "F:\\projects\\RESTfulJavaJAXRS\\src\\main\\resources";
