@@ -20,18 +20,26 @@
         <listener-class>org.jboss.resteasy.plugins.spring.SpringContextLoaderListener</listener-class>
     </listener>
 
-    <security-constraint>
-        <web-resource-collection>
-            <web-resource-name>Attempt</web-resource-name>
-            <url-pattern>/rest/watches</url-pattern>
-            <http-method>GET</http-method>
-        </web-resource-collection>
-        <auth-constraint>
-            <role-name>tomcat</role-name>
-        </auth-constraint>
-    </security-constraint>
+    <!--<security-constraint>-->
+        <!--<web-resource-collection>-->
+            <!--<web-resource-name>Attempt</web-resource-name>-->
+            <!--<url-pattern>/rest/watches</url-pattern>-->
+            <!--<http-method>GET</http-method>-->
+        <!--</web-resource-collection>-->
+        <!--<auth-constraint>-->
+            <!--<role-name>tomcat</role-name>-->
+        <!--</auth-constraint>-->
+    <!--</security-constraint>-->
 
-    <login-config>
-        <auth-method>BASIC</auth-method>
-    </login-config>
+    <!--<login-config>-->
+        <!--<auth-method>BASIC</auth-method>-->
+    <!--</login-config>-->
+    <filter>
+        <filter-name>springSecurityFilterChain</filter-name>
+        <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>springSecurityFilterChain</filter-name>
+        <url-pattern>/rest/*</url-pattern>
+    </filter-mapping>
 </web-app>
