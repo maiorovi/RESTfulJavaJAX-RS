@@ -5,9 +5,9 @@
 		http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
 		http://www.springframework.org/schema/security
 		http://www.springframework.org/schema/security/spring-security.xsd">
-
+    <!-- use-expressions default value is true. When true spring assumes that you will use spel in access -->
     <security:http use-expressions="false" create-session="never">
-        <security:intercept-url pattern="/rest/watches/" access="ROLE_USER" />
+        <security:intercept-url pattern="/rest/watches/*" access="ROLE_USER" />
         <security:http-basic />
         <security:csrf disabled="true" />
     </security:http>
